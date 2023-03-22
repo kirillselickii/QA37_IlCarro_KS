@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 public class HelperUser extends HelperBase {
     public HelperUser(WebDriver wd) {super(wd);}
 
-    public void openLoginRegistrationForm(){
+    public void openLog_inForm(){
         WebElement loginTab = wd.findElement(By.xpath("// a[text()='Log in']"));
         loginTab.click();
     }
@@ -22,6 +22,13 @@ public class HelperUser extends HelperBase {
         return isElementPresent(By.cssSelector("[ng-reflect-router-link='logout']"));
     }
     public void logout(){
-        click(By.xpath("//button[text()='Logout']"));
+        click(By.xpath("//button[text()='Logout']")); // By.xpath("//button[text()='Logout']")
+    }
+    public String getMessage(){
+    return wd.findElement(By.cssSelector(".dialog-container>h2")).getText();
+    }
+
+    public void closeWindow() {
+        click(By.xpath("//button[text()='Ok']"));
     }
 }
