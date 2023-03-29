@@ -1,5 +1,4 @@
 package manager;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,16 +13,15 @@ public class ApplicationManager {
     wd = new ChromeDriver(options);
     wd.manage().window().maximize();
     wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
     wd.navigate().to("https://ilcarro.web.app/");
     helperUser = new HelperUser(wd);
     }
-
+    public void stop(){
+        wd.quit();
+    }
     public HelperUser getHelperUser() {
         return helperUser;
     }
 
-    public void stop(){
-    wd.quit();
-    }
+
 }
